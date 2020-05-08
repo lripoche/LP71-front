@@ -1,11 +1,18 @@
 <div>
   <h2>Burger List</h2>
-  <ul id="burgers">
-    <li *ngFor="let burger of burgers">
-      <p>Burger {{burger.id}} : {{burger.name}} = {{burger.price}} €</p>
-      <img width=300 src="{{burger.image}}"/>
-    </li>
-  </ul>
+      <mat-card class="my-card" *ngFor="let burger of burgers">
+        <mat-card-header>
+          <mat-card-title> {{burger.name}}</mat-card-title>
+        </mat-card-header>
+      <img mat-card-image width=300 src="{{burger.image}}">
+      <mat-card-content>
+    <p>
+      {{burger.price}}€
+    </p>
+  </mat-card-content>
+      <mat-card-actions>
+        <button mat-button routerLink="burger/{{ burger.id }}">Details</button>
+      </mat-card-actions>
+      </mat-card>
 
-  <app-burger-detail></app-burger-detail>
 </div>

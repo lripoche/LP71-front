@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BurgersService } from '../api/api/burgers.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -9,19 +11,31 @@ import { BurgersService } from '../api/api/burgers.service';
 })
 export class BurgerDetailComponent implements OnInit {
 
-  @Input() id;
-
   burger;
+  id : number;
+  nutriments = [];
 
-  constructor(private burgersService : BurgersService) { }
+  constructor(private burgersService : BurgersService, private route : ActivatedRoute, private location : Location) {
+    this.id = +this.route.snapshot.paramMap.get('id');
+   }
 
   ngOnInit() {
     this.getBurger(this.id);
   }
 
   getBurger(id) : void {
-    this.burger = this.burgersService.burgerDetail(this.id)
-        .subscribe(burger => this.burger = burger);
+    this.burgersService.burgerDetail(this.id)
+        .subscribe(burger =>{ 
+          this.burger = burger;
+          for(let key in burger.nutriments) {
+            this.nutriments.push({key: key, value: burger.nutriments[key] });
+          }
+        } );
+
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

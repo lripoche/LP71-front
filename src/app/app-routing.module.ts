@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { BurgerListComponent } from './burger-list/burger-list.component'
+import { BurgerDetailComponent } from './burger-detail/burger-detail.component'
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: BurgerListComponent },
+  { path: 'burger/:id', component: BurgerDetailComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

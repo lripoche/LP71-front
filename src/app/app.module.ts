@@ -7,6 +7,9 @@ import { ApiModule } from './api';
 import { HttpClientModule } from '@angular/common/http';
 import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
 import { BurgerListComponent } from './burger-list/burger-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { BurgerListComponent } from './burger-list/burger-list.component';
     BrowserModule,
     AppRoutingModule,
     ApiModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

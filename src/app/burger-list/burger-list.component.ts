@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BurgersService } from '../api/api/burgers.service';
+import { BurgersService, Burger } from '../api';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { BurgersService } from '../api/api/burgers.service';
 })
 export class BurgerListComponent implements OnInit {
 
-  burgers;
+  burgers : Burger[];
 
   constructor(private burgersService : BurgersService) { }
 
@@ -18,7 +18,7 @@ export class BurgerListComponent implements OnInit {
   }
 
   getBurgers() : void {
-    this.burgers = this.burgersService.listBurgers()
+    this.burgersService.listBurgers()
         .subscribe(burgers => this.burgers = burgers);
   }
 

@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #D6ABFF;
+    text-align: center;
+  }
+
+.my-card  .mat-card-title {
+    text-transform: uppercase;
+  }
+
+.my-card .mat-card-content {
+  background-color : #976EAD;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+h2{
+    text-align: center; 
+}

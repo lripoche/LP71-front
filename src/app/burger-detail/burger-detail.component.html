@@ -1,4 +1,20 @@
 <div *ngIf="burger">
-  <h2>{{ burger.name }} Details</h2>
-  <div><span>id: </span>{{ burger.id }}</div>
+  <mat-card class="my-card">
+        <mat-card-header>
+            <mat-card-title>
+                {{ burger.name }}
+            </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ burger.image }}">
+        <mat-card-content>
+            <p>Prix: {{ burger.price }}€</p>
+            <p>Nutriscore: {{ burger.nutriscore }}</p>
+            <p *ngFor="let nutriment of nutriments">
+                {{ nutriment.key }}: {{ nutriment.value }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="goBack()">Retour</button>
+        </mat-card-actions>
+    </mat-card> 
 </div>
